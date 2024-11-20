@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:mental_health_tracker/screens/menu.dart';
 import 'package:mental_health_tracker/widgets/left_drawer.dart';
@@ -124,14 +123,14 @@ class _MoodEntryFormPageState extends State<MoodEntryFormPage> {
                           onPressed: () async {
                               if (_formKey.currentState!.validate()) {
                                   // Kirim ke Django dan tunggu respons
-                                  // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
+    
                                   final response = await request.postJson(
                                       "http://localhost:8000/create-flutter/",
                                       jsonEncode(<String, String>{
                                           'mood': _mood,
                                           'mood_intensity': _moodIntensity.toString(),
                                           'feelings': _feelings,
-                                      // TODO: Sesuaikan field data sesuai dengan aplikasimu
+                                     
                                       }),
                                   );
                                   if (context.mounted) {
